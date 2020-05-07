@@ -27,11 +27,21 @@ export default ({ limit }) => {
             {data.raised ? data.raised : hasError ? '$40,000' : 'Loading...'}
           </p>
         </div>
-        <span className="flex justify-between">
-          <p className="text-base leading-6 font-medium text-white hover:no-underline">
+        <div className="flex justify-between">
+          <p className="text-base leading-6 mb-0 font-medium text-white hover:no-underline">
             Total raised. Donate &rarr;
           </p>
-        </span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-xs leading-6 text-cool-gray-500 font-hairline">
+            {data.numberOfDonors
+              ? data.numberOfDonors
+              : hasError
+              ? ''
+              : 'Loading...'}
+            , Thank you!
+          </span>
+        </div>
       </a>
     </div>
   )
