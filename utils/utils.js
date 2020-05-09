@@ -9,6 +9,9 @@ import {
   startOfToday
 } from 'date-fns'
 
+import { groupBy } from 'lodash'
+import totals from '../components/totals'
+
 export let format = num => Intl.NumberFormat('en-US').format(num)
 export function shouldFormatDateDistance(date) {
   let deliveryDate = parse(date, 'MM/dd/yyyy', new Date())
@@ -32,4 +35,8 @@ export function formatDateDistance(date) {
 export let formatDate = date => {
   let latest = parse(date, 'MM/dd/yyyy', new Date())
   return _formatDate(latest, 'MMMM d, yyyy')
+}
+
+export function groupTotalsByDate() {
+  return groupBy(totals, 'date')
 }
